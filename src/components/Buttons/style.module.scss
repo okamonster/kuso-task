@@ -1,16 +1,17 @@
+@import '~/styles/variables.scss';
 .basicButton {
-  color: #ffffff;
+  color: $text-white;
   border: none;
   border-radius: 3px;
 }
 
 .primary {
-  background-color: #6171d2;
+  background-color: $primary-color;
 }
 
 .secondary {
-  color: #6171d2;
-  border: solid 1px #6171d2;
+  color: $primary-color;
+  border: solid 1px $primary-color;
   background-color: #ffffff;
 }
 
