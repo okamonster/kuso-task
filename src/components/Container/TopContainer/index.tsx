@@ -1,11 +1,13 @@
 import styles from './style.module.scss'
 
-import { Header } from '~/components/Header'
+import { BasicButton } from '~/components/Buttons/BasicButton'
+import { TaskList } from '~/components/List/TaskList'
 
 export const TopContainer = (): React.ReactElement => {
   return (
     <div className={styles.topContainer}>
-      <Header>SimpleTask</Header>
+      <BasicButton>Add Task</BasicButton>
+      <TaskList status="not-start" />
     </div>
   )
 }

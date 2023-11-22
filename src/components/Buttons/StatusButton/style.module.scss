@@ -1,0 +1,20 @@
+@import '~/styles/variables.scss';
+.statusButton {
+  padding: 8px;
+  color: $text-white;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.not-start {
+  background-color: $status-color-not-start;
+}
+
+.in-progress {
+  background-color: $status-color-in-progress;
+}
+
+.complete {
+  background-color: $status-color-complete;
+}
