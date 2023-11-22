@@ -1,0 +1,38 @@
+@import '~/styles/variables.scss';
+
+.listContainer {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .badge {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+
+  .not-start {
+    background-color: $status-color-not-start;
+  }
+
+  .in-progress {
+    background-color: $status-color-in-progress;
+  }
+
+  .complete {
+    background-color: $status-color-complete;
+  }
+}
+
+.taskList {
+  border: solid 1px $border-gray;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
