@@ -5,7 +5,7 @@ import { Header } from '~/components/Header'
 export default function Home() {
   return (
     <DefaultLayout>
-      <Header>SimpleTask</Header>
+      <Header>Simple Task</Header>
       <TopContainer />
     </DefaultLayout>
   )
