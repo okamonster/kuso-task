@@ -1,13 +1,20 @@
+import dayjs from 'dayjs'
+
 import styles from './style.module.scss'
 
 import { StatusButton } from '~/components/Buttons/StatusButton'
+import { Task } from '~/entities/task'
 
-export const TaskCard = (): React.ReactElement => {
+type Props = {
+  task: Task
+}
+
+export const TaskCard = ({ task }: Props): React.ReactElement => {
   return (
     <div className={styles.taskCard}>
       <div>
-        <h1>タイトル</h1>
-        <p>期限:</p>
+        <h1>{task.title}</h1>
+        <p>期限:{dayjs(task.deadline).format('YYYY/MM/DD')}</p>
       </div>
       <StatusButton status="not-start" onClick={() => {}}>
         未完了
