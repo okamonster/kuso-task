@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react'
 import styles from './style.module.scss'
 
 import { BasicButton } from '~/components/Buttons/BasicButton'
+import { AddTaskForm } from '~/components/Forms/AddTaskForm'
 import { TaskList } from '~/components/List/TaskList'
+import { ModalBase } from '~/components/Modal/ModalBase'
 import { Yabai } from '~/components/Yabai'
 import { Task } from '~/entities/task'
 import FetchTasksUseCase from '~/usecases/FetchTasksUseCase'
@@ -11,6 +13,7 @@ import FetchTasksUseCase from '~/usecases/FetchTasksUseCase'
 const fetchTasksUseCase = new FetchTasksUseCase()
 
 export const TopContainer = (): React.ReactElement => {
+  const [isFormOpen, setIsFormOpen] = useState(true)
   const [isYabai, setIsYabai] = useState(false)
   const [tasks, setTasks] = useState<Array<Task>>([])
   useEffect(() => {
@@ -19,13 +22,12 @@ export const TopContainer = (): React.ReactElement => {
       setTasks(tasks)
     }
     func()
-  }, [])
-  console.log(tasks)
+  }, [tasks])
   return (
     <div className={styles.topContainer}>
       <BasicButton
         onClick={() => {
-          setIsYabai(!isYabai)
+          setIsFormOpen(!isFormOpen)
         }}
       >
         Add Task
@@ -34,6 +36,16 @@ export const TopContainer = (): React.ReactElement => {
       <TaskList status="in-progress" tasks={tasks} />
       <TaskList status="complete" tasks={tasks} />
       {isYabai && <Yabai />}
+      {isFormOpen && (
+        <ModalBase
+          label="タスクを追加"
+          close={() => {
+            setIsFormOpen(!isFormOpen)
+          }}
+        >
+          <AddTaskForm onChangeYabai={() => setIsYabai(!isYabai)} />
+        </ModalBase>
+      )}
     </div>
   )
 }
