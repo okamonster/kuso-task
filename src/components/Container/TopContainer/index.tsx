@@ -13,7 +13,7 @@ import FetchTasksUseCase from '~/usecases/FetchTasksUseCase'
 const fetchTasksUseCase = new FetchTasksUseCase()
 
 export const TopContainer = (): React.ReactElement => {
-  const [isFormOpen, setIsFormOpen] = useState(true)
+  const [isFormOpen, setIsFormOpen] = useState(false)
   const [isYabai, setIsYabai] = useState(false)
   const [tasks, setTasks] = useState<Array<Task>>([])
   const [deadline, setDeadline] = useState<Date>(new Date())

@@ -1,4 +1,3 @@
-import { getAnalytics, isSupported } from 'firebase/analytics'
 import { initializeApp } from 'firebase/app'
 import { getFirestore, serverTimestamp } from 'firebase/firestore'
 
@@ -14,5 +13,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const firestore = getFirestore(app)
-const analytics = isSupported().then((yes) => (yes ? getAnalytics(app) : null))
-export { firestore, analytics, serverTimestamp }
+export { firestore, serverTimestamp }
