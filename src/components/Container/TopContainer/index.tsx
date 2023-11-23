@@ -16,6 +16,7 @@ export const TopContainer = (): React.ReactElement => {
   const [isFormOpen, setIsFormOpen] = useState(true)
   const [isYabai, setIsYabai] = useState(false)
   const [tasks, setTasks] = useState<Array<Task>>([])
+  const [deadline, setDeadline] = useState<Date>(new Date())
   useEffect(() => {
     const func = async () => {
       const tasks = await fetchTasksUseCase.execute()
@@ -35,7 +36,7 @@ export const TopContainer = (): React.ReactElement => {
       <TaskList status="not-started" tasks={tasks} />
       <TaskList status="in-progress" tasks={tasks} />
       <TaskList status="complete" tasks={tasks} />
-      {isYabai && <Yabai />}
+      {isYabai && <Yabai deadline={deadline} />}
       {isFormOpen && (
         <ModalBase
           label="タスクを追加"
@@ -43,7 +44,10 @@ export const TopContainer = (): React.ReactElement => {
             setIsFormOpen(!isFormOpen)
           }}
         >
-          <AddTaskForm onChangeYabai={() => setIsYabai(!isYabai)} />
+          <AddTaskForm
+            onChangeYabai={() => setIsYabai(!isYabai)}
+            setDeadline={setDeadline}
+          />
         </ModalBase>
       )}
     </div>
