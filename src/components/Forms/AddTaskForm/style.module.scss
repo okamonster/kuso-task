@@ -1,0 +1,26 @@
+.form {
+  display: grid;
+  width: 100%;
+  gap: 40px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  input {
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    outline: none;
+    box-sizing: border-box;
+  }
+  textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    outline: none;
+    box-sizing: border-box;
+  }
+}
