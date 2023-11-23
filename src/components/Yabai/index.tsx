@@ -27,7 +27,7 @@ export const Yabai = ({ deadline }: Props): React.ReactElement => {
         </div>
         <p className={styles.deadline}>
           振り込み期日まで : {diffDay}日{diffHour}時間{diffMinute}分
-          {diffSecond2}分
+          {diffSecond2}秒
         </p>
       </div>
 
