@@ -1,8 +1,10 @@
+import { NextPage } from 'next'
+
 import { DefaultLayout } from '~/Layouts/DefaultLayout'
 import { TopContainer } from '~/components/Container/TopContainer'
 import { Header } from '~/components/Header'
 
-export default function Home() {
+const Home: NextPage = () => {
   return (
     <DefaultLayout>
       <Header>Simple Task</Header>
@@ -10,3 +12,5 @@ export default function Home() {
     </DefaultLayout>
   )
 }
+
+export default Home
