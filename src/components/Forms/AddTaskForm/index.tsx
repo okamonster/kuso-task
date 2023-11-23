@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
@@ -11,9 +13,13 @@ const createTaskUseCase = new CreateTaskUseCase()
 
 type Props = {
   onChangeYabai: () => void
+  setDeadline: Dispatch<SetStateAction<Date>>
 }
 
-export const AddTaskForm = ({ onChangeYabai }: Props): React.ReactElement => {
+export const AddTaskForm = ({
+  onChangeYabai,
+  setDeadline,
+}: Props): React.ReactElement => {
   const {
     register,
     handleSubmit,
@@ -27,6 +33,7 @@ export const AddTaskForm = ({ onChangeYabai }: Props): React.ReactElement => {
       deadline: new Date(data.deadline),
       status: 'not-started',
     })
+    setDeadline(new Date(data.deadline))
     onChangeYabai()
   }
   return (
