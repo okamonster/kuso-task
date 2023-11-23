@@ -16,7 +16,7 @@
     border-radius: 50%;
   }
 
-  .not-start {
+  .not-started {
     background-color: $status-color-not-start;
   }
 
@@ -30,9 +30,11 @@
 }
 
 .taskList {
+  display: grid;
   border: solid 1px $border-gray;
   padding: 10px;
   border-radius: 5px;
   width: 100%;
+  gap: 10px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
